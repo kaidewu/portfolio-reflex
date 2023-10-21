@@ -6,7 +6,7 @@ def logo():
     return rx.link(
         rx.box(
             rx.image(
-                src=os.getenv("PROFILE_URL"),
+                src=os.getenv("PROFILE_URL") if os.getenv("PROFILE_URL") is not None else "",
                 alt="Profile Image",
                 borderRadius="full",
                 html_width="40",
