@@ -2,6 +2,7 @@ import reflex as rx
 
 from portfolio.pages.index import index
 from portfolio.pages.works import works
+from portfolio.pages.contact import contact
 
 from portfolio.state.state import State
 
@@ -12,4 +13,5 @@ app = rx.App(
     )
 app.add_page(index)
 app.add_page(works)
+app.add_page(contact)
 app.compile()
