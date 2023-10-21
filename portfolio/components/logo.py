@@ -1,10 +1,12 @@
 import reflex as rx
 
+import os
+
 def logo():
     return rx.link(
         rx.box(
             rx.image(
-                src="https://media.licdn.com/dms/image/D4D03AQHJJfsn_R49gQ/profile-displayphoto-shrink_800_800/0/1697579468200?e=2147483647&v=beta&t=F_maiaDdmKe7klM6ltl3ivTEGHKWTNwMkhwylivvniI",#"images/kaide's photo.jpeg",
+                src=os.getenv("PROFILE_URL"),
                 alt="Profile Image",
                 borderRadius="full",
                 html_width="40",
