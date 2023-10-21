@@ -1,10 +1,8 @@
+# Environment Files
+# Virtual Environment
 *.db
 *.py[cod]
+.env
 .web
 __pycache__/
-
-# Virtual Environment
 venv/
-
-# Environment Files
-.env
