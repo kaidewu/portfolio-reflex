@@ -31,7 +31,8 @@ jobs:
 
     - name: Deploy Reflex App
       run: |
-        reflex init & reflex run &
+        reflex init
+        reflex run &
         wait
     - name: Test with pytest
       run: |
