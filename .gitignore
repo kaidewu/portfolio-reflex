@@ -5,4 +5,5 @@
 .env
 .web
 __pycache__/
+test/test.py
 venv/
