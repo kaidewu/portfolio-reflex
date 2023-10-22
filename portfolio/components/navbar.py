@@ -2,7 +2,7 @@ import reflex as rx
 
 from portfolio.components.logo import logo
 
-def navbar():
+def navbar() -> rx.Component:
     return rx.box(
         rx.container(
             rx.flex(
@@ -17,8 +17,19 @@ def navbar():
             ),
             rx.stack(
                 rx.link(
-                    "Work",
+                    "Works",
                     href="/works",
+                    scroll={False},
+                    p={3},
+                    _hover={
+                        "textDecoration": "underline",
+                        "top": "-10px",
+                        "position": "relative"
+                    }
+                ),
+                rx.link(
+                    "Projects",
+                    href="/projects",
                     scroll={False},
                     p={3},
                     _hover={
@@ -84,6 +95,10 @@ def navbar():
                                 href="/works"
                             ),
                             rx.link(
+                                rx.menu_item("Projects"),
+                                href="/projects"
+                            ),
+                            rx.link(
                                 rx.menu_item("Contact"),
                                 href="/contact"
                             ),
@@ -112,6 +127,5 @@ def navbar():
         ),
         position="fixed",
         w="100%",
-        zIndex={2},
-        backdropFilter="blur(10px)"
+        zIndex={2}
     )
