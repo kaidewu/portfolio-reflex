@@ -6,3 +6,5 @@
 .web
 __pycache__/
 venv/
+
+test/test.py
