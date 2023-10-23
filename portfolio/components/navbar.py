@@ -50,6 +50,7 @@ def navbar() -> rx.Component:
                     }
                 ),
                 rx.link(
+                    rx.image(src="/Icons/GithubIcon.svg", height="1.2em", display="inline-flex", pr={0.5}, alignItems="center"),
                     "Source",
                     href="https://github.com/kaidewu/portfolio-reflex",
                     scroll={False},
@@ -84,7 +85,7 @@ def navbar() -> rx.Component:
                 rx.box(
                     rx.menu(
                         rx.menu_button(
-                            rx.icon_button(),
+                            rx.icon(tag="hamburger"),
                             as_="IconButton",
                             variant="outline",
                             aria_label="Options"
@@ -127,5 +128,6 @@ def navbar() -> rx.Component:
         ),
         position="fixed",
         w="100%",
+        as_="nav",
         zIndex={2}
     )
