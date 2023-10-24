@@ -1,5 +1,6 @@
 import reflex as rx
 
+from portfolio.constants import GITHUB_PORTFOLIO_REFLEX_URL
 from portfolio.components.logo import logo
 
 def navbar() -> rx.Component:
@@ -52,7 +53,7 @@ def navbar() -> rx.Component:
                 rx.link(
                     rx.image(src="/Icons/GithubIcon.svg", height="1.2em", display="inline-flex", pr={0.5}, alignItems="center"),
                     "Source",
-                    href="https://github.com/kaidewu/portfolio-reflex",
+                    href=GITHUB_PORTFOLIO_REFLEX_URL,
                     scroll={False},
                     p={3},
                     _hover={
@@ -105,7 +106,7 @@ def navbar() -> rx.Component:
                             ),
                             rx.link(
                                 rx.menu_item("Source"),
-                                href="https://github.com/kaidewu/portfolio-reflex",
+                                href=GITHUB_PORTFOLIO_REFLEX_URL,
                                 is_external=True
                             )
                         ),
