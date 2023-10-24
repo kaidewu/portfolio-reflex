@@ -21,9 +21,11 @@ def index() -> rx.Component:
                         fontWeight="bold"
                     ),
                     " as a Consultant and Implanter of an Hospital Information System (HIS).",
+                    " as a Consultant and Implanter of an Hospital Information System (HIS).",
                     textAlign="justify"
                 ),
-                delay={0.1}
+                delay={0.1},
+                pt={10}
             )
         )
     )

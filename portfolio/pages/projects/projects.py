@@ -12,7 +12,6 @@ def projects() -> rx.Component:
                     "Projects",
                 ),
                 as_="h3",
-                fontSize={10},
                 mb={4}
             ),
             rx.responsive_grid(
@@ -30,6 +29,38 @@ def projects() -> rx.Component:
                         title="Cloudy",
                         thumbnail="/example_image.jpg",
                         description="A website build with NextJS + FastAPI"
+                    )
+                ),
+                rx.box(
+                    project_item(
+                        id="myhomecloud",
+                        title="MyHomeCloud",
+                        thumbnail="/example_image.jpg",
+                        description="Local cloud build with Flask"
+                    )
+                ),
+                rx.box(
+                    project_item(
+                        id="myhomecloud",
+                        title="MyHomeCloud",
+                        thumbnail="/example_image.jpg",
+                        description="Local cloud build with Flask"
+                    )
+                ),
+                rx.box(
+                    project_item(
+                        id="myhomecloud",
+                        title="MyHomeCloud",
+                        thumbnail="/example_image.jpg",
+                        description="Local cloud build with Flask"
+                    )
+                ),
+                rx.box(
+                    project_item(
+                        id="myhomecloud",
+                        title="MyHomeCloud",
+                        thumbnail="/example_image.jpg",
+                        description="Local cloud build with Flask"
                     )
                 ),
                 rx.box(

@@ -1,5 +1,6 @@
 import reflex as rx
 
+from portfolio.constants import GITHUB_URL, LINKEDIN_URL, MAIL
 from datetime import date
 
 footer_item_style = {
@@ -23,15 +24,17 @@ def footer(style=footer_style) -> rx.Component:
                 rx.hstack(
                     rx.link(
                         rx.image(src="/Icons/GithubIcon.svg", height="1.75em"),
-                        href="https://github.com/kaidewu",
+                        href=GITHUB_URL,
+                        is_external=True
                     ),
                     rx.link(
                         rx.image(src="/Icons/LinkedinIcon.svg", height="1.75em"),
-                        href="https://linkedin.com/in/kaidewu",
+                        href=LINKEDIN_URL,
+                        is_external=True
                     ),
                     rx.link(
                         rx.icon(tag="email", height="40px", width="28px"),
-                        href="mailto:kaidewu@outlook.es",
+                        href=f"mailto:{MAIL}"
                     ),
                     spacing="1em",
                 ),

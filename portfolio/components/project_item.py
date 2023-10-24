@@ -1,8 +1,8 @@
 import reflex as rx
 
 def project_item(id: str, title: str, thumbnail: str, description: str) -> rx.Component:
-    return rx.link_box(
-        rx.link_overlay(
+    return rx.link(
+        rx.link_box(
             rx.box(
                 rx.image(
                     id="project_image",
@@ -29,10 +29,8 @@ def project_item(id: str, title: str, thumbnail: str, description: str) -> rx.Co
             id="project_card"
         ),
         id="project_wrapper",
-        scroll=False,
-        cursor="pointer",
-        href=f"/projects/{id}"
     ),
-    as_="div",
+    scroll={False},
+    cursor="pointer",
     href=f"/projects/{id}"
 )
