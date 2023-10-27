@@ -1,3 +1,2 @@
 reflex
-PyGithub
 python-dotenv
