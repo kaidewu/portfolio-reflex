@@ -5,6 +5,7 @@ from portfolio.pages.works import works
 from portfolio.pages.projects.projects import projects
 from portfolio.pages.projects.myhomecloud import my_home_cloud
 from portfolio.pages.projects.portfolio_reflex import portfolio_reflex
+from portfolio.pages.projects.portfolio_reflex_github_api import portfolio_reflex_github_api
 from portfolio.pages.projects.cloudy import cloudy
 from portfolio.pages.projects.sqly import sqly
 from portfolio.pages.contact import contact
@@ -24,6 +25,7 @@ app.add_page(works)
 app.add_page(projects)
 app.add_page(my_home_cloud)
 app.add_page(portfolio_reflex)
+app.add_page(portfolio_reflex_github_api)
 app.add_page(cloudy)
 app.add_page(sqly)
 app.add_page(contact)
