@@ -10,11 +10,27 @@ def projects() -> rx.Component:
             rx.box(
                 rx.heading(
                     "Projects",
+                    as_="h1",
+                    mb={4}
                 ),
-                as_="h3",
-                mb={4}
             ),
             rx.responsive_grid(
+                rx.box(
+                    project_item(
+                        id="sqly",
+                        title="SQLY",
+                        thumbnail="/example_image.jpg",
+                        description="A website that generate SQL Queries"
+                    )
+                ),
+                rx.box(
+                    project_item(
+                        id="portfolio-reflex-github-api",
+                        title="Portfolio Reflex With Github API",
+                        thumbnail="/example_image.jpg",
+                        description="A portfolio build with Reflex and using Github API"
+                    )
+                ),
                 rx.box(
                     project_item(
                         id="portfolio-reflex",
@@ -29,38 +45,6 @@ def projects() -> rx.Component:
                         title="Cloudy",
                         thumbnail="/example_image.jpg",
                         description="A website build with NextJS + FastAPI"
-                    )
-                ),
-                rx.box(
-                    project_item(
-                        id="myhomecloud",
-                        title="MyHomeCloud",
-                        thumbnail="/example_image.jpg",
-                        description="Local cloud build with Flask"
-                    )
-                ),
-                rx.box(
-                    project_item(
-                        id="myhomecloud",
-                        title="MyHomeCloud",
-                        thumbnail="/example_image.jpg",
-                        description="Local cloud build with Flask"
-                    )
-                ),
-                rx.box(
-                    project_item(
-                        id="myhomecloud",
-                        title="MyHomeCloud",
-                        thumbnail="/example_image.jpg",
-                        description="Local cloud build with Flask"
-                    )
-                ),
-                rx.box(
-                    project_item(
-                        id="myhomecloud",
-                        title="MyHomeCloud",
-                        thumbnail="/example_image.jpg",
-                        description="Local cloud build with Flask"
                     )
                 ),
                 rx.box(
