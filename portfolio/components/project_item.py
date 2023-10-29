@@ -24,7 +24,8 @@ def project_item(id: str, title: str, thumbnail: str, description: str) -> rx.Co
                         id="project_description",
                         textColor="white"
                     ),
-                    id="info"
+                    id="info",
+                    textDecaration="none"
                 ),
             id="project_card"
         ),
