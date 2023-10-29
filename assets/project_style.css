@@ -33,7 +33,7 @@
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(58, 58, 58, 0.6);
     z-index: 2;
     transition: 0.5s;
     opacity: 0;

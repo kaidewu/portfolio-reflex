@@ -130,5 +130,6 @@ def navbar() -> rx.Component:
         position="fixed",
         w="100%",
         as_="nav",
+        backdropFilter="blur(5px)",
         zIndex={2}
     )

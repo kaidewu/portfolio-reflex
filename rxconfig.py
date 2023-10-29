@@ -5,5 +5,8 @@ load_dotenv()
 
 
 config = rx.Config(
+    port=3000,
     app_name="portfolio",
+    username="Kaide Wu",
+    telemetry_enabled=False
 )

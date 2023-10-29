@@ -10,7 +10,7 @@ def main(*args) -> rx.Component:
             *args,
             footer(),
             maxW="container.md",
-            pt={14}
+            pt={20}
         ),
         as_="main",
         pb={8}
