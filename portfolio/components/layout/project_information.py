@@ -3,9 +3,9 @@ import reflex as rx
 def project_information(title: str, *args) -> rx.Component:
     return rx.container(
             rx.link(
-                rx.icon_button(
-                icon="ArrowBackIcon",
-                aria_label="Go Back"
+                rx.button(
+                rx.icon(tag="arrow_back"),
+                "Go Back"
                 ),
                 href="/projects"
             ),
