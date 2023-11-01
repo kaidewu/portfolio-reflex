@@ -18,9 +18,12 @@ def logo():
             ),
             rx.text(
                 "Kaide Wu",
-                fontFamily="M PLUS Rounded 1c"", sans-serif",
+                style={
+                    "font-family": "'Inter', sans-serif",
+                    "font-family": "'Playfair Display', serif"
+                },
                 fontWeight="bold",
-                fontSize={20},
+                fontSize={30},
                 ml={3}
             ),
             fontWeight="bold",
@@ -29,7 +32,7 @@ def logo():
             p={30},
             h={10},
             display="inline-flex",
-            lineHeight={20}
+            lineHeight={10}
         ),
         href="/",
         scroll={False}

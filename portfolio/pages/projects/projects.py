@@ -51,7 +51,7 @@ def projects() -> rx.Component:
                     project_item(
                         id="myhomecloud",
                         title="MyHomeCloud",
-                        thumbnail="/example_image.jpg",
+                        thumbnail="/myhomecloud-cover.png",
                         description="Local cloud build with Flask"
                     )
                 ),

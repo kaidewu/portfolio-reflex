@@ -24,12 +24,11 @@ def project_item(id: str, title: str, thumbnail: str, description: str) -> rx.Co
                         id="project_description",
                         textColor="white"
                     ),
-                    id="info",
-                    textDecaration="none"
+                    id="info"
                 ),
-            id="project_card"
+            id="project_card",
         ),
-        id="project_wrapper",
+        id="project_wrapper"
     ),
     scroll={False},
     cursor="pointer",
