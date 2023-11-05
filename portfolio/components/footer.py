@@ -18,7 +18,7 @@ def footer(style=footer_style) -> rx.Component:
         rx.vstack(
             rx.hstack(
                 rx.text(
-                    f"© {date.today().year} Kaide Wu. All rights Reserved.",
+                    f"Copyright © {date.today().year} Kaide Wu",
                     style=footer_item_style,
                 ),
                 rx.hstack(
@@ -44,4 +44,6 @@ def footer(style=footer_style) -> rx.Component:
             ),
         ),
         **style,
+        as_="footer",
+        textAlign="center"
     )
