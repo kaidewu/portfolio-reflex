@@ -8,5 +8,8 @@ config = rx.Config(
     port=3000,
     app_name="portfolio",
     username="Kaide Wu",
-    telemetry_enabled=False
+    telemetry_enabled=False,
+    frontend_packages={
+        "typewriter-effect"
+    }
 )
