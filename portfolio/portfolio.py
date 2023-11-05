@@ -9,6 +9,7 @@ from portfolio.pages.projects.portfolio_reflex_github_api import portfolio_refle
 from portfolio.pages.projects.cloudy import cloudy
 from portfolio.pages.projects.sqly import sqly
 from portfolio.pages.contact import contact
+from portfolio.pages import page404
 
 from portfolio.state.state import State
 
@@ -17,7 +18,7 @@ from portfolio.state.state import State
 app = rx.App(
     state=State,
     stylesheets={
-        "/project_style.css"
+        "/styles.css"
     }
     )
 app.add_page(index)
@@ -29,4 +30,5 @@ app.add_page(portfolio_reflex_github_api)
 app.add_page(cloudy)
 app.add_page(sqly)
 app.add_page(contact)
+app.add_custom_404_page(page404.index)
 app.compile()
