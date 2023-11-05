@@ -23,7 +23,7 @@ def logo():
                     "font-family": "'Playfair Display', serif"
                 },
                 fontWeight="bold",
-                fontSize={30},
+                fontSize={20},
                 ml={3}
             ),
             fontWeight="bold",

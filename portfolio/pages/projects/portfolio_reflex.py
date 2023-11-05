@@ -1,6 +1,7 @@
 import reflex as rx
 
 from portfolio.components.layout.main import main
+from portfolio.components.projects import title
 
 @rx.page(route="/projects/portfolio-reflex")
 def portfolio_reflex() -> rx.Component:
