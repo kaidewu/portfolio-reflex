@@ -1,5 +1,31 @@
 import reflex as rx
+from reflex.vars import Var
+from typing import Dict, Any
 
 class State(rx.State):
-    """The app state."""
-    pass
+    """The base state."""
+
+    @rx.var
+    def current_page(self) -> str:
+        """The current page."""
+        page = (
+            self.router_data.get("headers", {}).get("origin", "")
+            + self.get_current_page()
+        )
+        return page
+
+class TypewriterLib(rx.Component):
+    """ Typewriter component """
+
+    library="typewriter-effect"
+    
+    is_default=True
+
+class Typewriter(TypewriterLib):
+
+    tag="Typewriter"
+
+    options: Var[Dict[Any, Any]]
+
+
+typewrite = Typewriter.create
