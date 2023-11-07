@@ -25,7 +25,7 @@ def index() -> rx.Component:
                             textColor="#00A9FF"
                         ),
                         as_="h1",
-                        fontSize={50},
+                        fontSize="50",
                         variant="section-title"
                     ),
                     rx.heading(
@@ -44,8 +44,8 @@ def index() -> rx.Component:
                         ),
                     ),
                 ),
-                delay={0.1},
-                pt={10}
+                delay="0.1",
+                pt="10"
             ),
             rx.container(
                 rx.box(
@@ -59,7 +59,7 @@ def index() -> rx.Component:
                             "Laberit",
                             href="https://www.laberit.com/",
                             passHref=True,
-                            scroll={False},
+                            scroll="false",
                             fontWeight="bold"
                         ),
                         " as a Consultant and Implanter of an Hospital Information System (HIS).",
@@ -92,11 +92,11 @@ def index() -> rx.Component:
                                 href="/projects"
                             ),
                         ),
-                        my={4}
+                        my="4"
                     ),
                 ),
-                delay={0.1},
-                pt={10}
+                delay="0.1",
+                pt="10"
             )
         )
     )
