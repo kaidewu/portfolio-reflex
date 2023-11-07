@@ -11,17 +11,17 @@ def navbar() -> rx.Component:
                     logo(),
                     as_="h1",
                     size="lg",
-                    letterSpacing={'tighter'}
+                    letterSpacing="tighter"
                 ),
                 align="center",
-                mr={5}
+                mr="5"
             ),
             rx.stack(
                 rx.link(
                     "Works",
                     href="/works",
-                    scroll={False},
-                    p={3},
+                    scroll="false",
+                    p="3",
                     _hover={
                         "textDecoration": "underline",
                         "top": "-10px",
@@ -31,8 +31,8 @@ def navbar() -> rx.Component:
                 rx.link(
                     "Projects",
                     href="/projects",
-                    scroll={False},
-                    p={3},
+                    scroll="false",
+                    p="3",
                     _hover={
                         "textDecoration": "underline",
                         "top": "-10px",
@@ -42,8 +42,8 @@ def navbar() -> rx.Component:
                 rx.link(
                     "Contact",
                     href="/contact",
-                    scroll={False},
-                    p={3},
+                    scroll="false",
+                    p="3",
                     _hover={
                         "textDecoration": "underline",
                         "top": "-10px",
@@ -51,11 +51,11 @@ def navbar() -> rx.Component:
                     }
                 ),
                 rx.link(
-                    rx.image(src="/Icons/GithubIcon.svg", height="1.2em", display="inline-flex", pr={0.5}, alignItems="center"),
+                    rx.image(src="/Icons/GithubIcon.svg", height="1.2em", display="inline-flex", pr="0.5", alignItems="center"),
                     "Source",
                     href=GITHUB_PORTFOLIO_REFLEX_URL,
-                    scroll={False},
-                    p={3},
+                    scroll="false",
+                    p="3",
                     _hover={
                         "textDecoration": "underline",
                         "top": "-10px",
@@ -67,7 +67,7 @@ def navbar() -> rx.Component:
                 display={'base': 'none', 'md': 'flex'},
                 width={'base': 'full', 'md': 'auto'},
                 pt="5px",
-                flexGrow={1},
+                flexGrow="1",
                 mt={'base': 4, 'md': 0}
             ),
             rx.box(
@@ -113,15 +113,15 @@ def navbar() -> rx.Component:
                         is_lazy=True,
                         id="navbar-menu"
                     ),
-                    ml={2},
+                    ml="2",
                     display={'base': 'inline-block', 'md': 'none'}
                 ),
-                flex={1},
+                flex="1",
                 align="right",
-                pt="5px"
+                pt="5"
             ),
             display="flex",
-            p={2},
+            p="2",
             maxW="container.md",
             wrap="wrap",
             align="center",
@@ -131,5 +131,5 @@ def navbar() -> rx.Component:
         w="100%",
         as_="nav",
         backdropFilter="blur(5px)",
-        zIndex={2}
+        zIndex="2"
     )

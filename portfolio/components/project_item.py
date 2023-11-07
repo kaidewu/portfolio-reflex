@@ -15,8 +15,8 @@ def project_item(id: str, title: str, thumbnail: str, description: str) -> rx.Co
                     rx.text(
                         title,
                         id="project_title",
-                        mt={2},
-                        fontSize={20},
+                        mt="2",
+                        fontSize="20",
                         textColor="white"
                     ),
                     rx.text(
@@ -30,7 +30,7 @@ def project_item(id: str, title: str, thumbnail: str, description: str) -> rx.Co
         ),
         id="project_wrapper"
     ),
-    scroll={False},
+    scroll="false",
     cursor="pointer",
     href=f"/projects/{id}"
 )

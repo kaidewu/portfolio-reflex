@@ -16,8 +16,8 @@ def title(*args) -> rx.Component:
             *args,
             as_="h3",
             display="inline-block",
-            fontSize={20},
-            mb={4}
+            fontSize="20",
+            mb="4"
         ),
-        pt={5}
+        pt="5"
     )

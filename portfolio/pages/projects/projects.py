@@ -11,7 +11,7 @@ def projects() -> rx.Component:
                 rx.heading(
                     "Projects",
                     as_="h1",
-                    mb={4}
+                    mb="4"
                 ),
             ),
             rx.responsive_grid(
@@ -56,8 +56,8 @@ def projects() -> rx.Component:
                     )
                 ),
                 columns=[1, 1, 2],
-                gap={6}
+                gap="6"
             ),
-            mt={5}
+            mt="5"
         ),
     )

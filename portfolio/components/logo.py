@@ -23,17 +23,17 @@ def logo():
                     "font-family": "'Playfair Display', serif"
                 },
                 fontWeight="bold",
-                fontSize={20},
-                ml={3}
+                fontSize="20",
+                ml="3"
             ),
             fontWeight="bold",
-            fontSize={10},
+            fontSize="10",
             alignItems="center",
-            p={30},
-            h={10},
+            p="30",
+            h="10",
             display="inline-flex",
-            lineHeight={10}
+            lineHeight="10"
         ),
         href="/",
-        scroll={False}
+        scroll="false"
     )
