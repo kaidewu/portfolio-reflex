@@ -1,12 +1,13 @@
 import reflex as rx
 
 import os
+from portfolio.constants from PHOTO_URL
 
 def logo():
     return rx.link(
         rx.box(
             rx.image(
-                src=os.getenv("PROFILE_URL") if os.getenv("PROFILE_URL") is not None else "",
+                src=PHOTO_URL,
                 alt="Profile Image",
                 borderRadius="full",
                 html_width="50",
