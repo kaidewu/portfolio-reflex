@@ -105,7 +105,10 @@ def navbar() -> rx.Component:
                                 href="/contact"
                             ),
                             rx.link(
-                                rx.menu_item("Source"),
+                                rx.menu_item(
+                                    rx.image(src="/Icons/GithubIcon.svg", height="0.9em", display="inline-flex", pr="0.5", alignItems="center"),
+                                    "Source"
+                                ),
                                 href=GITHUB_PORTFOLIO_REFLEX_URL,
                                 is_external=True
                             )
