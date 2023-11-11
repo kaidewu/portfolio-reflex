@@ -54,20 +54,12 @@ def index() -> rx.Component:
                         as_="h1"
                     ),
                     rx.text(
-                        "I'm actually working in ",
-                        rx.link(
-                            "Laberit",
-                            href="https://www.laberit.com/",
-                            passHref=True,
-                            scroll="false",
-                            fontWeight="bold"
-                        ),
-                        " as a Consultant and Implanter of an Hospital Information System (HIS).",
+                        "In my free time, I like to immerse myself in the world of programming. I enjoy creating personal projects, exploring the latest tech trends, and continuously expanding my skills.",
                         textAlign="justify"
                     ),
-                    rx.spacer(),
+                    rx.html("<br>"),
                     rx.text(
-                        "As a hobby, I love immersing myself in the world of programming. I enjoy creating personal projects, exploring the latest tech trends, and continuously expanding my skills.",
+                        "I am deeply in love of Python. Also I have some knownledge of Javascript, PHP, Java and C# (Unity)",
                         textAlign="justify"
                     ),
                     rx.box(
