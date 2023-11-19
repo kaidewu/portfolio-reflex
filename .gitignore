@@ -1,9 +1,21 @@
 # Environment Files
+
 # Virtual Environment
+
 *.db
+
 *.py[cod]
+
 .env
+
+.web/
+
 .web
+
 __pycache__/
+
 test/test.py
+
 venv/
+
+virtual-environment/

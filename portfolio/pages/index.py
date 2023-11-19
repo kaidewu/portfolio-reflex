@@ -51,7 +51,13 @@ def index() -> rx.Component:
                 rx.box(
                     rx.heading(
                         "About me",
-                        as_="h1"
+                        as_="h2",
+                        fontSize="2em",
+                        variant="section-title",
+                        textDecoration="underline",
+                        textDecorationThickness="2.5px",
+                        fontWeight="bold",
+                        pb="2"
                     ),
                     rx.text(
                         "In my free time, I like to immerse myself in the world of programming. I enjoy creating personal projects, exploring the latest tech trends, and continuously expanding my skills.",
