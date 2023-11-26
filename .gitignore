@@ -10,8 +10,6 @@
 
 .web/
 
-.web
-
 __pycache__/
 
 test/test.py
