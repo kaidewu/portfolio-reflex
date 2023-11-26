@@ -1,6 +1,5 @@
 import reflex as rx
 
-
 from portfolio.components.layout.main import main
 from portfolio.components.project_item import project_item
 
@@ -55,7 +54,7 @@ def projects() -> rx.Component:
                         description="Local cloud build with Flask"
                     )
                 ),
-                columns=[1, 1, 2],
+                columns=[1, 1, 3],
                 gap="6"
             ),
             mt="5"
