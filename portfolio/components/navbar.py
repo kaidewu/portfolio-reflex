@@ -1,8 +1,9 @@
 import reflex as rx
 
+from portfolio.constants import GITHUB_PORTFOLIO_REFLEX_URL
 from portfolio.components.logo import logo
 
-def navbar():
+def navbar() -> rx.Component:
     return rx.box(
         rx.container(
             rx.flex(
@@ -10,17 +11,28 @@ def navbar():
                     logo(),
                     as_="h1",
                     size="lg",
-                    letterSpacing={'tighter'}
+                    letterSpacing="tighter"
                 ),
                 align="center",
-                mr={5}
+                mr="5"
             ),
             rx.stack(
                 rx.link(
-                    "Work",
+                    "Works",
                     href="/works",
-                    scroll={False},
-                    p={3},
+                    scroll="false",
+                    p="3",
+                    _hover={
+                        "textDecoration": "underline",
+                        "top": "-10px",
+                        "position": "relative"
+                    }
+                ),
+                rx.link(
+                    "Projects",
+                    href="/projects",
+                    scroll="false",
+                    p="3",
                     _hover={
                         "textDecoration": "underline",
                         "top": "-10px",
@@ -30,8 +42,8 @@ def navbar():
                 rx.link(
                     "Contact",
                     href="/contact",
-                    scroll={False},
-                    p={3},
+                    scroll="false",
+                    p="3",
                     _hover={
                         "textDecoration": "underline",
                         "top": "-10px",
@@ -39,10 +51,11 @@ def navbar():
                     }
                 ),
                 rx.link(
+                    rx.image(src="/Icons/GithubIcon.svg", height="1.2em", display="inline-flex", pr="0.5", alignItems="center"),
                     "Source",
-                    href="https://github.com/kaidewu/portfolio-reflex",
-                    scroll={False},
-                    p={3},
+                    href=GITHUB_PORTFOLIO_REFLEX_URL,
+                    scroll="false",
+                    p="3",
                     _hover={
                         "textDecoration": "underline",
                         "top": "-10px",
@@ -54,7 +67,7 @@ def navbar():
                 display={'base': 'none', 'md': 'flex'},
                 width={'base': 'full', 'md': 'auto'},
                 pt="5px",
-                flexGrow={1},
+                flexGrow="1",
                 mt={'base': 4, 'md': 0}
             ),
             rx.box(
@@ -73,8 +86,7 @@ def navbar():
                 rx.box(
                     rx.menu(
                         rx.menu_button(
-                            rx.icon_button(),
-                            as_="IconButton",
+                            rx.icon(tag="hamburger"),
                             variant="outline",
                             aria_label="Options"
                         ),
@@ -84,27 +96,34 @@ def navbar():
                                 href="/works"
                             ),
                             rx.link(
+                                rx.menu_item("Projects"),
+                                href="/projects"
+                            ),
+                            rx.link(
                                 rx.menu_item("Contact"),
                                 href="/contact"
                             ),
                             rx.link(
-                                rx.menu_item("Source"),
-                                href="https://github.com/kaidewu/portfolio-reflex",
+                                rx.menu_item(
+                                    rx.image(src="/Icons/GithubIcon.svg", height="0.9em", display="inline-flex", pr="0.5", alignItems="center"),
+                                    "Source"
+                                ),
+                                href=GITHUB_PORTFOLIO_REFLEX_URL,
                                 is_external=True
                             )
                         ),
                         is_lazy=True,
                         id="navbar-menu"
                     ),
-                    ml={2},
+                    ml="2",
                     display={'base': 'inline-block', 'md': 'none'}
                 ),
-                flex={1},
+                flex="1",
                 align="right",
-                pt="5px"
+                pt="5"
             ),
             display="flex",
-            p={2},
+            p="2",
             maxW="container.md",
             wrap="wrap",
             align="center",
@@ -112,6 +131,7 @@ def navbar():
         ),
         position="fixed",
         w="100%",
-        zIndex={2},
-        backdropFilter="blur(10px)"
+        as_="nav",
+        backdropFilter="blur(5px)",
+        zIndex="2"
     )

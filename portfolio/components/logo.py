@@ -1,16 +1,17 @@
 import reflex as rx
 
 import os
+from portfolio.constants import PROFILE_URL
 
 def logo():
     return rx.link(
         rx.box(
             rx.image(
-                src=os.getenv("PROFILE_URL") if os.getenv("PROFILE_URL") is not None else "",
+                src=PROFILE_URL,
                 alt="Profile Image",
                 borderRadius="full",
-                html_width="40",
-                html_height="40",
+                html_width="50",
+                html_height="50",
                 _hover={
                     "transform": "rotate(360deg)",
                     "transition": "transform 0.5s ease-in-out"
@@ -18,20 +19,22 @@ def logo():
             ),
             rx.text(
                 "Kaide Wu",
-                fontFamily="M PLUS Rounded 1c"", sans-serif",
+                style={
+                    "font-family": "'Inter', sans-serif",
+                    "font-family": "'Playfair Display', serif"
+                },
                 fontWeight="bold",
-                ml={3}
+                fontSize="20",
+                ml="3"
             ),
-            style={
-                "font-weight": "bold",
-                "font-size": "10 px",
-                "align-items": "center",
-                "padding": "30px",
-                "line-height": "20px",
-                "height": "10px",
-                "display": "inline-flex"
-            }
+            fontWeight="bold",
+            fontSize="10",
+            alignItems="center",
+            p="30",
+            h="10",
+            display="inline-flex",
+            lineHeight="10"
         ),
         href="/",
-        scroll={False}
+        scroll="false"
     )

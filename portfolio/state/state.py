@@ -1,25 +1,27 @@
 import reflex as rx
-
-import asyncio
-import sys
-from portfolio.state.fetcher import user_repos
-
-from typing import List, Dict
-
-async def get_repos(username: str) -> List[List]:
-    repos_datas: List[List] = []
-    try:
-        data = await user_repos(username)
-        if data is None:
-            raise Exception("Error in fetcher.py file")
-        for repos in data:
-            repos_datas.append([repos["name"], repos["url"], repos["description"]])
-            print(repos)
-        return repos_datas
-    except Exception as exc:
-        print(exc, file=sys.stderr)
+from reflex.vars import Var
+from typing import Dict, Any
 
 class State(rx.State):
-    """The app state."""
+    """The base state."""
+
+    @rx.var
+    def current_page(self) -> str:
+        """The current page."""
+        return self.router.page.full_path
+
+class TypewriterLib(rx.Component):
+    """ Typewriter component """
+
+    library="typewriter-effect"
     
-    user_repos: List[List] = asyncio.run(get_repos("kaidewu"))
+    is_default=True
+
+class Typewriter(TypewriterLib):
+
+    tag="Typewriter"
+
+    options: Var[Dict[Any, Any]]
+
+
+typewrite = Typewriter.create
