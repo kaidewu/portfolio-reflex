@@ -17,7 +17,7 @@ def works() -> rx.Component:
                 fontSize="1.75em"
             ),
             rx.text(
-                "I'm actually working in ",
+                "I'm actually working as an Implementation Consultant of an Hospital Information System (HIS) at ",
                 rx.link(
                     "Laberit",
                     href="https://www.laberit.com/",
@@ -25,7 +25,6 @@ def works() -> rx.Component:
                     scroll="false",
                     fontWeight="bold"
                 ),
-                " as a Consultant and Implanter of an Hospital Information System (HIS).",
                 textAlign="justify"
             ),
             pt="1em",
