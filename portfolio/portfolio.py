@@ -5,9 +5,6 @@ from portfolio.pages.works import works
 from portfolio.pages.contact import contact
 from portfolio.pages import page404
 
-from portfolio.state.state import State
-
-
 # Add state and page to the app.
 app = rx.App(
     stylesheets={
