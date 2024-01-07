@@ -1,13 +1,10 @@
 import reflex as rx
 
-import os
-from portfolio.constants import PROFILE_URL
-
 def logo():
     return rx.link(
         rx.box(
             rx.image(
-                src=PROFILE_URL,
+                src="/profile_image.jpg",
                 alt="Profile Image",
                 borderRadius="full",
                 html_width="50",
