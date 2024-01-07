@@ -3,8 +3,10 @@
 *.db
 *.py[cod]
 .env
+.idea/
 .web
 __pycache__/
+test/
 test/test.py
 venv/
-.idea/
+asserts/profile_image.jpg
