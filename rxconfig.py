@@ -1,9 +1,9 @@
 import reflex as rx
-from portfolio.constants import USERNAME
+from portfolio.constants import NAME
 
 config = rx.Config(
     app_name="portfolio",
-    username=USERNAME,
+    username=NAME,
     telemetry_enabled=False,
     frontend_packages={
         "typewriter-effect"
