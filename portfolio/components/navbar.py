@@ -1,6 +1,5 @@
 import reflex as rx
 
-from portfolio.constants import GITHUB_PORTFOLIO_REFLEX_URL
 from portfolio.components.logo import logo
 
 def navbar() -> rx.Component:
@@ -23,43 +22,35 @@ def navbar() -> rx.Component:
                     scroll="false",
                     p="3",
                     _hover={
-                        "textDecoration": "underline",
-                        "top": "-10px",
-                        "position": "relative"
+                        "textDecoration": "underline"
                     }
                 ),
                 rx.link(
                     "Projects",
-                    href="/projects",
+                    href="#",
                     scroll="false",
                     p="3",
                     _hover={
-                        "textDecoration": "underline",
-                        "top": "-10px",
-                        "position": "relative"
+                        "textDecoration": "underline"
                     }
                 ),
                 rx.link(
                     "Contact",
-                    href="/contact",
+                    href="#",
                     scroll="false",
                     p="3",
                     _hover={
-                        "textDecoration": "underline",
-                        "top": "-10px",
-                        "position": "relative"
+                        "textDecoration": "underline"
                     }
                 ),
                 rx.link(
                     rx.image(src="/Icons/GithubIcon.svg", height="1.2em", display="inline-flex", pr="0.5", alignItems="center"),
                     "Source",
-                    href=GITHUB_PORTFOLIO_REFLEX_URL,
+                    href="https://github.com/kaidewu/portfolio-reflex",
                     scroll="false",
                     p="3",
                     _hover={
-                        "textDecoration": "underline",
-                        "top": "-10px",
-                        "position": "relative"
+                        "textDecoration": "underline"
                     },
                     is_external=True
                 ),
@@ -79,14 +70,13 @@ def navbar() -> rx.Component:
                             "transition": "transform 1s ease-in-out"
                         }
                     ),
-                    style={
-                        "display": "inline-block",
-                    }
+                    display="inline-block"
                 ),
                 rx.box(
                     rx.menu(
                         rx.menu_button(
                             rx.icon(tag="hamburger"),
+                            as_="IconButton",
                             variant="outline",
                             aria_label="Options"
                         ),
@@ -97,18 +87,18 @@ def navbar() -> rx.Component:
                             ),
                             rx.link(
                                 rx.menu_item("Projects"),
-                                href="/projects"
+                                href="#"
                             ),
                             rx.link(
                                 rx.menu_item("Contact"),
-                                href="/contact"
+                                href="#"
                             ),
                             rx.link(
                                 rx.menu_item(
                                     rx.image(src="/Icons/GithubIcon.svg", height="0.9em", display="inline-flex", pr="0.5", alignItems="center"),
                                     "Source"
                                 ),
-                                href=GITHUB_PORTFOLIO_REFLEX_URL,
+                                href="https://github.com/kaidewu/portfolio-reflex",
                                 is_external=True
                             )
                         ),
@@ -119,8 +109,10 @@ def navbar() -> rx.Component:
                     display={'base': 'inline-block', 'md': 'none'}
                 ),
                 flex="1",
-                align="right",
-                pt="5"
+                align="center",
+                justify="space-between",
+                display="flex",
+                pt="2"
             ),
             display="flex",
             p="2",
