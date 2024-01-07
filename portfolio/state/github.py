@@ -2,39 +2,59 @@ from __future__ import annotations
 
 import reflex as rx
 import httpx
+import time
 from datetime import datetime
-from typing import NamedTuple
-from ..constants import GITHUB_API_URL
+from typing import Literal, Union, List, Dict
+from ..constants import GITHUB_API_URL, GITHUB_API_TOKEN, REPOSITORIES
 
-def github_connection():
-    try:
-        response =  httpx.get(
-            GITHUB_API_URL
-        )
-        if response.status_code == 200:
-            user_repositories = response.json()
-            return user_repositories
-        return False
-    except Exception as err:
-        raise Exception(err)
-
-class RepoData(NamedTuple):
-    name: str
-    description: str
-    repo_url: str
-    created_at: str
-    year: str
-    month_day: str
-    topics: list
+# Define a custom key function to extract the 'updated_at' value as a datetime object
+def get_updated_at(repo):
+    return datetime.strptime(repo["updated_at"], "%Y-%m-%dT%H:%M:%SZ")
 
 class Github(rx.State):
-    """Github Repositories"""
+    """GitHub Repositories"""
+
+    response: Union[list, Literal[False]] = False
+    show_all_repositories: bool = False
+    repositories_to_show: list[str] = REPOSITORIES
+    topics: list[str] = []
+    is_processing: bool = False
+    is_finished: bool = False
+
+    def set_all_repositories(self) -> None:
+        self.show_all_repositories = True
     
-    languages: list[str] = ["Python", "HTML", "JavaScript", "TypeScript", "CSS"]
-    user_repositories = github_connection()
+    # Call github REST API to get user repositories
+    @rx.background
+    async def call_user_repos(self) -> None:
+        REAT_API = GITHUB_API_URL
+        TOKEN = GITHUB_API_TOKEN
+        try:
+            async with self:
+                self.is_processing = True
+            
+            async with httpx.AsyncClient() as client:
+                res = await client.get(
+                    REAT_API,
+                    headers={
+                        "Accept": "application/vnd.github+json",
+                        "Authorization": f"Bearer {TOKEN}",
+                        "X-GitHub-Api-Version": "2022-11-28"
+                    }
+                )
+                if res.status_code == 200:
+                    async with self:
+                        self.response = sorted(res.json(), key=get_updated_at)
+        except:
+            async with self:
+                self.response = False
+                self.is_processing = False
+        finally:
+            async with self:
+                self.is_processing = False
     
-    @rx.var
-    def user_repos(self) -> list[RepoData]:
+    @rx.cached_var
+    def get_repositories(self) -> List[Dict[str, List[str]]]:
         """Get information of user public repositories
 
         Args:
@@ -51,21 +71,33 @@ class Github(rx.State):
             else:
                 error message
         """
-        repos_data: list[RepoData] = []
+        user_repos: List[Dict[str, List[str]]] = []
         try:
-            for repo in self.user_repositories:
-                if (repo["language"] in self.languages) and (repo["visibility"] == "public"):
-                    repos_data.append(
-                        RepoData(
-                            name=repo["name"] if repo else "", # 0
-                            description=repo["description"] if repo else "", # 1
-                            repo_url=repo["html_url"] if repo else "", # 2
-                            created_at=repo["created_at"] if repo else "", # 3
-                            year=str(datetime.strptime(repo["created_at"], "%Y-%m-%dT%H:%M:%SZ").year) if repo else "", # 4
-                            month_day=str(datetime.strptime(repo["created_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%b %d")) if repo else "", # 5
-                            topics=[f"{topic} | " for topic in repo["topics"]] # 6
-                        )
-                    )
-            return repos_data
+            if self.response:
+                if self.show_all_repositories:
+                    user_repos = [{
+                        "name": repo["name"],
+                        "description": repo["description"],
+                        "repo_url": repo["html_url"],
+                        "created_at": repo["created_at"],
+                        "year": str(datetime.strptime(repo["created_at"], "%Y-%m-%dT%H:%M:%SZ").year),
+                        "month_day": str(datetime.strptime(repo["created_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%b %d")),
+                        "topics": [topic for topic in repo["topics"]]
+                    } for repo in self.response]
+                user_repos = [{
+                    "name": repo["name"],
+                    "description": repo["description"],
+                    "repo_url": repo["html_url"],
+                    "created_at": repo["created_at"],
+                    "year": str(datetime.strptime(repo["created_at"], "%Y-%m-%dT%H:%M:%SZ").year),
+                    "month_day": str(datetime.strptime(repo["created_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%b %d")),
+                    "topics": [topic for topic in repo["topics"]]
+                } for repo in self.response if repo["name"] in self.repositories_to_show]
+            return []
         except Exception as err:
+            self.is_processing = False
             raise Exception(err)
+        finally:
+            self.is_processing = False
+            self.is_finished = True
+            return user_repos
