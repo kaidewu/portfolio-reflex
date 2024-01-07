@@ -1,15 +1,21 @@
 import reflex as rx
-from dotenv import load_dotenv
-
-load_dotenv()
-
+from portfolio.constants import NAME
 
 config = rx.Config(
     port=3000,
     app_name="portfolio",
-    username="Kaide Wu",
+    username=NAME,
     telemetry_enabled=False,
     frontend_packages={
         "typewriter-effect"
-    }
+    },
+    tailwind={
+        "theme": {
+            "extend": {},
+            "container": {
+                "center": True,
+            },
+        },
+        "plugins": ["@tailwindcss/typography"],
+    },
 )

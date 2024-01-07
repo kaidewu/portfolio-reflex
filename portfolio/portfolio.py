@@ -9,26 +9,18 @@ from portfolio.pages.projects.portfolio_reflex_github_api import portfolio_refle
 from portfolio.pages.projects.cloudy import cloudy
 from portfolio.pages.projects.sqly import sqly
 from portfolio.pages.contact import contact
+from portfolio.pages.projects import repository_page
 from portfolio.pages import page404
-
-from portfolio.state.state import State
-
 
 # Add state and page to the app.
 app = rx.App(
-    state=State,
     stylesheets={
         "/styles.css"
     }
     )
-app.add_page(index, title="Portfolio | Kaide Wu", image="/favicon.ico")
-app.add_page(works, title="Portfolio | Kaide Wu", image="/favicon.ico")
-app.add_page(projects, title="Portfolio | Kaide Wu", image="/favicon.ico")
-app.add_page(my_home_cloud, title="Portfolio | Kaide Wu", image="/favicon.ico")
-app.add_page(portfolio_reflex, title="Portfolio | Kaide Wu", image="/favicon.ico")
-app.add_page(portfolio_reflex_github_api, title="Portfolio | Kaide Wu", image="/favicon.ico")
-app.add_page(cloudy, title="Portfolio | Kaide Wu", image="/favicon.ico")
-app.add_page(sqly, title="Portfolio | Kaide Wu", image="/favicon.ico")
-app.add_page(contact, title="Portfolio | Kaide Wu", image="/favicon.ico")
+app.add_page(index)
+app.add_page(works)
+app.add_page(contact)
+app.add_page(repository_page)
 app.add_custom_404_page(page404.index)
 app.compile()

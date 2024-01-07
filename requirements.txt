@@ -1,2 +1,3 @@
 reflex
+httpx
 python-dotenv
