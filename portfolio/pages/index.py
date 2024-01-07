@@ -10,7 +10,6 @@ from portfolio.components.contact import contact
 
 def index() -> rx.Component:
     """Index page"""
-    
     return main(
         rx.container(
             rx.container(

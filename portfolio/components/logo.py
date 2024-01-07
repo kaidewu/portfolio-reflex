@@ -1,4 +1,5 @@
 import reflex as rx
+from portfolio.constants import PROFILE_URL
 
 def logo():
     return rx.link(
