@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import reflex as rx
 from portfolio.constants import NAME
 
@@ -8,7 +10,8 @@ config = rx.Config(
     telemetry_enabled=False,
     frontend_packages={
         "typewriter-effect",
-        "react-copy-to-clipboard"
+        "react-copy-to-clipboard",
+        "@vercel/analytics"
     },
     tailwind={
         "theme": {
@@ -19,4 +22,5 @@ config = rx.Config(
         },
         "plugins": ["@tailwindcss/typography"],
     },
+    loglevel="debug"
 )

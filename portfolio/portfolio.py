@@ -4,13 +4,12 @@ from portfolio.pages.index import index
 from portfolio.pages.works import works
 from portfolio.pages.projects import repository_page
 from portfolio.pages import page404
-from portfolio.state.middleware import LoggingMiddleware
-from portfolio import styles
 
 # Add state and page to the app.
 app = rx.App(
-    style=styles.BASE_STYLE,
-    middleware=[LoggingMiddleware()],
+    style={
+        "background_color": "#D2D6EF"
+    },
     stylesheets={
         "/styles.css"
     },

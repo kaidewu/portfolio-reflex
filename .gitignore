@@ -6,6 +6,6 @@
 .idea/
 .web
 __pycache__/
-asserts/profile_image.jpg
 test/
 venv/
+.vercel
