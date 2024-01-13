@@ -1,18 +1,11 @@
 # Environment Files
-
 # Virtual Environment
-
 *.db
-
 *.py[cod]
-
 .env
-
 .idea/
 .web
 __pycache__/
-test/
-
-venv/
 asserts/profile_image.jpg
-
+test/
+venv/
