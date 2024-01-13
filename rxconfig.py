@@ -10,8 +10,7 @@ config = rx.Config(
     telemetry_enabled=False,
     frontend_packages={
         "typewriter-effect",
-        "react-copy-to-clipboard",
-        "@vercel/analytics"
+        "react-copy-to-clipboard"
     },
     tailwind={
         "theme": {
