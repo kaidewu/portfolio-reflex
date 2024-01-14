@@ -14,7 +14,7 @@ app = rx.App(
         "/styles.css"
     },
     )
-app.add_page(index, title="Portfolio")
-app.add_page(works, title="Portfolio")
-app.add_page(repository_page, title="Portfolio")
-app.add_custom_404_page(page404.index, title="Portfolio")
+app.add_page(index, title="Kaide's Portfolio")
+app.add_page(works, title="Kaide's Portfolio")
+app.add_page(repository_page, title="Kaide's Portfolio")
+app.add_custom_404_page(page404.index, title="Kaide's Portfolio")

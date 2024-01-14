@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import reflex as rx
 import httpx
-import time
+import os
 from datetime import datetime
 from typing import Literal, Union, List, Dict
 from ..constants import GITHUB_API_URL, GITHUB_API_TOKEN, REPOSITORIES
@@ -21,13 +21,13 @@ class Github(rx.State):
     is_finished: bool = False
     
     # Call github REST API to get user repositories
-    @rx.background
-    async def call_user_repos(self) -> None:
+    def call_user_repos(self) -> None:
+        """Get repository JSON from Github API
+        """
         REAT_API = GITHUB_API_URL
         TOKEN = GITHUB_API_TOKEN
         try:
-            async with self:
-                self.is_processing = True
+            self.is_processing = True
             
             with httpx.Client() as client:
                 res = client.get(
@@ -39,15 +39,12 @@ class Github(rx.State):
                     }
                 )
                 if res.status_code == 200:
-                    async with self:
-                        self.response = sorted(res.json(), key=get_updated_at)
+                    self.response = sorted(res.jso(), key=get_updated_at)
         except:
-            async with self:
-                self.response = False
-                self.is_processing = False
+            self.response = False
+            self.is_processing = False
         finally:
-            async with self:
-                self.is_processing = False
+            self.is_processing = False
     
     @rx.cached_var
     def get_repositories(self) -> List[Dict[str, List[str]]]:
@@ -56,16 +53,15 @@ class Github(rx.State):
         Args:
             None
 
-        Returns:
-            if it is no error returns List[RepoData]:
+        Returns List[Dict[str, List[str]]]:
+            List of dictionary:
                 name: str
                 description: str
                 repo_url: str
                 created_at: str
                 year: str
                 month_day: str
-            else:
-                error message
+                topics: List[str]
         """
         user_repos: List[Dict[str, List[str]]] = []
         try:

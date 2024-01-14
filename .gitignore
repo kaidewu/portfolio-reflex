@@ -4,8 +4,8 @@
 *.py[cod]
 .env
 .idea/
+.vercel
 .web
 __pycache__/
 test/
 venv/
-.vercel

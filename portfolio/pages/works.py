@@ -50,13 +50,23 @@ def works() -> rx.Component:
                 ),
                 ", ",
                 rx.link(
-                    "Ascires.",
+                    "Premium Madrid",
+                    href="https://rehabilitacionpremiummadrid.com/",
+                    passHref=True,
+                    scroll="false",
+                    fontWeight="bold",
+                    is_external=True
+                ),
+                " and ",
+                rx.link(
+                    "Ascires",
                     href="https://www.ascires.com/",
                     passHref=True,
                     scroll="false",
                     fontWeight="bold",
                     is_external=True
-                )
+                ),
+                "."
             ),
             pt="1em",
             pb="1em"

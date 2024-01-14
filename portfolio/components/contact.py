@@ -59,6 +59,27 @@ def contact() -> rx.Component:
                         is_external=True
                     ),
                 ),
+                rx.box(
+                    rx.link(
+                        rx.image(
+                            src="/Icons/LinkedinIcon.svg", 
+                            h="7",
+                            w="8",
+                            display="inline-flex", 
+                            pr="0.5", 
+                            alignItems="center"
+                        ),
+                        "@kaidewu",
+                        href="https://linkedin.com/in/kaidewu/",
+                        scroll="false",
+                        p="3",
+                        _hover={
+                            "textDecoration": "underline"
+                        },
+                        font_size="17",
+                        is_external=True
+                    ),
+                ),
                 class_name="grid grid-cols-2 flex-wrap md:flex-nowrap items-center gap-3"
             )
         ),
