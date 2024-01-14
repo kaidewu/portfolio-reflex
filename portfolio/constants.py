@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import os
 from dotenv import load_dotenv
-from typing import List, Dict, Any
+from typing import List
 
 load_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env"))
 

@@ -1,6 +1,5 @@
 import reflex as rx
 from portfolio.constants import MAIL
-from portfolio.state.state import ClipboardState
 
 def contact() -> rx.Component:
     return rx.container(
@@ -25,12 +24,31 @@ def contact() -> rx.Component:
                     rx.tooltip(
                         rx.link(
                             rx.button(
-                                rx.icon(tag="email", height="40px", width="28px")
+                                rx.icon(
+                                    tag="email", 
+                                    height="40px", 
+                                    width="28px"
+                                ),
+                                variant="outline"
                             ),
                             href=f"mailto:{MAIL}",
-                            ml="3"  
+                            ml="3",
+                            mr="3" 
                         ),
                         label="Open mail",
+                        has_arrow=True
+                    ),
+                    rx.tooltip(
+                        rx.button(
+                            rx.icon(
+                                tag="copy", 
+                                h="40px", 
+                                w="28px"
+                            ),
+                            on_click=rx.set_clipboard("kaidewu@outlook.es"),
+                            variant="outline"
+                        ),
+                        label="Copy mail",
                         has_arrow=True
                     ),
                     as_="article",

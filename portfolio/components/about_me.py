@@ -1,6 +1,5 @@
 import reflex as rx
 from portfolio.components.paragraph import paragraph
-from portfolio.constants import PROFILE_URL
 
 def about_me() -> rx.Component:
     return rx.container(

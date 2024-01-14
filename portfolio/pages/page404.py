@@ -1,12 +1,7 @@
 import reflex as rx
 
 from portfolio.components.layout.main import main
-from portfolio.state.state import State
-
-class State404(State):
-    @rx.var
-    def origin_url(self) -> str:
-        return self.router_data.get("asPath", "")
+from portfolio.state.state import State404
 
 def index():
     # Wrap the component in the template.

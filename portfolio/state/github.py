@@ -7,6 +7,14 @@ from datetime import datetime
 from typing import Literal, Union, List, Dict
 from ..constants import GITHUB_API_URL, GITHUB_API_TOKEN, REPOSITORIES
 
+project_about: Dict[str, str] = {
+    "cloudy": "Local storage application with NextJS and FastAPI involves utilizing both frameworks to handle client-side and server-side functionalities, respectively.",
+    "sqly": "Local storage application with NextJS and FastAPI involves utilizing both frameworks to handle client-side and server-side functionalities, respectively.",
+    "myhomecloud": "Local storage application with NextJS and FastAPI involves utilizing both frameworks to handle client-side and server-side functionalities, respectively.",
+    "portfolio": "Local storage application with NextJS and FastAPI involves utilizing both frameworks to handle client-side and server-side functionalities, respectively.",
+    "portfolio-reflex": "Local storage application with NextJS and FastAPI involves utilizing both frameworks to handle client-side and server-side functionalities, respectively."
+}
+
 # Define a custom key function to extract the 'updated_at' value as a datetime object
 def get_updated_at(repo):
     return datetime.strptime(repo["updated_at"], "%Y-%m-%dT%H:%M:%SZ")
@@ -21,13 +29,15 @@ class Github(rx.State):
     is_finished: bool = False
     
     # Call github REST API to get user repositories
-    def call_user_repos(self) -> None:
+    @rx.background
+    async def call_user_repos(self) -> None:
         """Get repository JSON from Github API
         """
         REAT_API = GITHUB_API_URL
         TOKEN = GITHUB_API_TOKEN
         try:
-            self.is_processing = True
+            async with self:
+                self.is_processing = True
             
             with httpx.Client() as client:
                 res = client.get(
@@ -39,12 +49,15 @@ class Github(rx.State):
                     }
                 )
                 if res.status_code == 200:
-                    self.response = sorted(res.jso(), key=get_updated_at)
+                    async with self:
+                        self.response = sorted(res.json(), key=get_updated_at)
         except:
-            self.response = False
-            self.is_processing = False
+            async with self:
+                self.response = False
+                self.is_processing = False
         finally:
-            self.is_processing = False
+            async with self:
+                self.is_processing = False
     
     @rx.cached_var
     def get_repositories(self) -> List[Dict[str, List[str]]]:
@@ -73,7 +86,9 @@ class Github(rx.State):
                     "created_at": repo["created_at"],
                     "year": str(datetime.strptime(repo["created_at"], "%Y-%m-%dT%H:%M:%SZ").year),
                     "month_day": str(datetime.strptime(repo["created_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%b %d")),
-                    "topics": [topic for topic in repo["topics"]]
+                    "topics": [topic for topic in repo["topics"]],
+                    "about": project_about[str(repo["name"]).lower()],
+                    "homepage": repo["homepage"] if repo["homepage"] is not None else ""
                 } for repo in self.response if repo["name"] in self.repositories_to_show]
             return []
         except Exception as err:

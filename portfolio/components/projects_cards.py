@@ -36,8 +36,7 @@ def render_projects_cards(repository: Dict[str, List[str]]) -> rx.Component:
                             repository['name'],
                             class_name="font-bold uppercase font-size-20"
                         ),
-                        href=f"{repository['repo_url']}", # f"/projects/{repository['name']}/"
-                        is_external=True
+                        href=f"/projects/{repository['name']}/"
                     ),
                     rx.text(
                         repository['description'],
