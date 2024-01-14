@@ -1,6 +1,6 @@
 # Kaide's Portfolio
 
-A portfolio build it with [Reflex](https://reflex.dev)
+Portfolio website build with [Reflex](https://reflex.dev) and using Github API.
 
 # Getting Started
 ### Prerequisites:
